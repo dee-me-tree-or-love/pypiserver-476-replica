@@ -28,7 +28,7 @@ To test the Vagrant setup, run `make start-vagrant`.
 
 You should be able to access `pypiserver` behind the NGINX reverse proxy at `localhost:8081`.
 
-> For more information see [`./vagrant-setup`](./docker-setup/).  
+> For more information see [`./vagrant-setup`](./vagrant-setup/).  
 > 💡 Once you would like to cleanup the vagrant machine run `make destroy-vagrant`.
 
 #### Vagrant Result
