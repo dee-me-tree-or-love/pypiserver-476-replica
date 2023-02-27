@@ -16,7 +16,9 @@ You should be able to access `pypiserver` behind the NGINX reverse proxy at `loc
 
 > <details>
 > <summary>Requesting basic auth on frontend running in Docker (.gif)</summary>
->  
+>
+> ---
+>
 > ![docker-compose](./.docs/docker-compose.gif)
 > </details>
 
@@ -33,6 +35,8 @@ You should be able to access `pypiserver` behind the NGINX reverse proxy at `loc
 
 > <details>
 > <summary>Requesting basic auth on frontend running in Vagrant (.gif)</summary>
->  
+>
+> ---
+>
 > ![vagrant](./.docs/vagrant.gif)
 > </details>
