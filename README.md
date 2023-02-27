@@ -14,16 +14,25 @@ You should be able to access `pypiserver` behind the NGINX reverse proxy at `loc
 
 #### Docker Result
 
-<details>
-<summary>Basic auth on frontend (.gif)</summary>
-
-![docker-compose](./.docs/docker-compose.gif)
-</details>
+> <details>
+> <summary>Requesting basic auth on frontend running in Docker (.gif)</summary>
+>
+> ![docker-compose](./.docs/docker-compose.gif)
+> </details>
 
 ### Vagrant solution
 
 To test the Vagrant setup, run `make start-vagrant`.
 
-Once the command reaches the end, you should be able to access pypiserver at `localhost:8081` via NGINX reverse-proxy, or `localhost:8082` directly.
+You should be able to access `pypiserver` behind the NGINX reverse proxy at `localhost:8081`.
 
-> For more information see [`./vagrant-setup`](./docker-setup/)
+> For more information see [`./vagrant-setup`](./docker-setup/).  
+> :lightbulb: Once you would like to cleanup the vagrant machine run `make destroy-vagrant`.
+
+#### Vagrant Result
+
+> <details>
+> <summary>Requesting basic auth on frontend running in Vagrant (.gif)</summary>
+>
+> ![vagrant](./.docs/vagrant.gif)
+> </details>
