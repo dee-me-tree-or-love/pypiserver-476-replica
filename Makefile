@@ -31,5 +31,8 @@ start-vagrant: vagrant-setup/.htpasswd
 	VAGRANT_CWD=./vagrant-setup vagrant up
 
 .PHONY: destroy-vagrant
-destroy-vagrant: VAGRANT_CWD=./vagrant-setup
+destroy-vagrant:
 	VAGRANT_CWD=./vagrant-setup vagrant destroy
+
+.PHONY: destroy-start-vagrant
+destroy-start-vagrant: destroy-vagrant start-vagrant

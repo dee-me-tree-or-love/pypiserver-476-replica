@@ -11,16 +11,13 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/focal64"
 
   # Copy the configuration files
-  config.vm.provision "file", source: "./pypiserver.conf", destination: "/tmp/pypiserver.conf"
+  config.vm.provision "file", source: "./nginx.conf", destination: "/tmp/nginx.conf"
   config.vm.provision "file", source: "./pypiserver.service", destination: "/tmp/pypiserver.service"
   config.vm.provision "file", source: "./.htpasswd", destination: "/tmp/.htpasswd"
   
   # Congigure the VM using a shellscript
   config.vm.provision "shell", path: ".provision.sh"
 
-  # Forward the pypiserver proxy port 8888 to 8081 on host machine
-  config.vm.network "forwarded_port", guest: 8888, host: 8081, id: "nginx"
-
-  # Forward the pypiserver port 8080 to 8082 on host machine
-  config.vm.network "forwarded_port", guest: 8080, host: 8082, id: "pypiserver"
+  # Forward the pypiserver proxy port 80 to 8081 on host machine
+  config.vm.network "forwarded_port", guest: 80, host: 8081, id: "nginx"
 end

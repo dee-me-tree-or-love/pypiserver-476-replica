@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 apt-get -y update
 
 # Install prerequisite services
@@ -14,9 +16,9 @@ pip3 install pypiserver==1.5.1 passlib
 mkdir -p /tmp/packages
 
 # Copy the pypiserver.conf to replace the default site
-cp /tmp/pypiserver.conf /etc/nginx/sites-available/default
+cp /tmp/nginx.conf /etc/nginx/conf.d/default.conf
+unlink /etc/nginx/sites-enabled/default
 ls -la /etc/nginx/sites-enabled/
-cat /etc/nginx/sites-enabled/default
 
 # Copy the pypiserver service
 cp /tmp/pypiserver.service /etc/systemd/system/pypiserver.service
