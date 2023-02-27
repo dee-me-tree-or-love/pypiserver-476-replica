@@ -7,13 +7,18 @@ DOCKER_IMAGE_TAG=pypi-repro
 docker-setup/.htpasswd:
 	htpasswd -sc ./docker-setup/.htpasswd ${TEST_USER_NAME}
 
+.PHONY: run-compose
+run-compose: docker-setup/.htpasswd
+	docker compose -f ./docker-setup/docker-compose.yaml up
+
 .PHONY: build-docker
 build-docker: docker-setup/Dockerfile docker-setup/.htpasswd
-	docker build ./docker-setup -t ${DOCKER_IMAGE_TAG} 
+	docker build ./docker-setup -t ${DOCKER_IMAGE_TAG}
 
 .PHONY: run-docker
 run-docker: build-docker
 	docker run --rm -it -p 8080:8080 ${DOCKER_IMAGE_TAG}
+
 
 # Running setup in Vagrant VM
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~

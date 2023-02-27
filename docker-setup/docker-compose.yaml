@@ -1,0 +1,24 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:1.13.7
+    container_name: nginx
+    ports:
+      - 8080:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - repro-network
+  pypiserver:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: pypiserver-repro:0.0.1
+    container_name: pypiserver-repro
+    networks:
+      repro-network:
+        aliases:
+          - "pypiserver-app"
+
+networks:
+  repro-network:

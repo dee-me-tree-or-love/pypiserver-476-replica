@@ -6,11 +6,19 @@ This repo is a simplified reproduction of the <https://github.com/pypiserver/pyp
 
 ### Docker solution
 
-To test the Docker setup, run `make run-docker`.
+To test the Docker setup, run `make run-compose`.
 
-Once the command reaches the end, you should be able to access the pypiserver at `localhost:8080`.
+You should be able to access `pypiserver` behind the NGINX reverse proxy at `localhost:8080`.
 
-> For more information see [`./docker-setup`](./docker-setup/)
+> For more details see [`./docker-setup`](./docker-setup/)
+
+#### Docker Result
+
+<details>
+<summary>Basic auth on frontend (.gif)</summary>
+
+![docker-compose](./.docs/docker-compose.gif)
+</details>
 
 ### Vagrant solution
 
